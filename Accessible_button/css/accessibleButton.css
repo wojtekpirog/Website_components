@@ -1,0 +1,62 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  font-family: sans-serif;
+  background-color: #365E32;
+}
+
+.button {
+  position: relative;
+  padding: 1em 2em;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  background-color: #FD9B63;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.button__circle {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+  animation-name: pulse;
+  animation-duration: 300ms;
+  animation-delay: 100ms;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: linear;
+}
+
+.button:focus {
+  outline: none;
+  border-color: #000;
+}
+
+@keyframes pulse {
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
