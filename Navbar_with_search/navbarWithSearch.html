@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/navbarWithSearch.css">
+</head>
+<body>
+  <!-- App header -->
+  <header>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <!-- Navbar items (ul) -->
+      <ul class="navbar__items">
+        <li class="navbar__item"><a href="./index.html" class="navbar__link">Home</a></li>
+        <li class="navbar__item"><a href="./about.html" class="navbar__link">About</a></li>
+        <li class="navbar__item"><a href="./team.html" class="navbar__link">Team</a></li>
+        <li class="navbar__item"><a href="./contact.html" class="navbar__link">Contact</a></li>
+      </ul>
+      <!-- Navbar items (ul) -->
+      <!-- Search box (div) -->
+      <div class="navbar__search">
+        <label for="search-input" class="sr-only">Type here to search</label>
+        <input id="search-input" type="text" class="navbar__input navbar__input--active" placeholder="Search..." />
+        <button type="button" class="navbar__button">
+          <img src="./icons/search.svg" alt="Search icon">
+        </button>
+      </div>
+      <!-- Search box (div) -->
+    </nav> 
+    <!-- Navbar -->
+  </header> 
+  <!-- App header -->
+  <script src="./js/navbarWithSearch.js"></script> 
+</body>
+</html>
