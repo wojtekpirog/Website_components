@@ -1,0 +1,121 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+
+  --primary-color-h: 156;
+  --primary-color-s: 50%;
+  --primary-color-l: 10%;
+  --primary-color: hsl(var(--primary-color-h), var(--primary-color-s), var(--primary-color-l));
+  --secondary-color: hsl(calc(var(--primary-color-h) + 180), var(--primary-color-s), var(--primary-color-l));
+
+  --light: hsl(105, 55%, 96%);
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+  background-color: var(--primary-color);
+  color: var(--light);
+}
+
+.app {
+  width: 90%;
+  max-width: 1000px;
+}
+
+.app__buttons {
+  margin-bottom: 2em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.app__buttons-group, .app__slider, .app__board {
+  margin: 0 1em;
+}
+
+.app__buttons-group-heading {
+  margin-bottom: 1em;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.app__button {
+  padding: .5em 1em;
+  border: 2px solid #f1faee;
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  color: var(--light);
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: background-color 200ms linear, color 200ms linear;
+}
+
+.app__button:hover {
+  background-color: var(--light);
+  color: var(--primary-color);
+}
+
+.app__slider {
+  margin-bottom: 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app__slider-input {
+  width: 50%;
+  margin-bottom: .5em;
+}
+
+.app__board {
+  display: flex;
+}
+
+.square {
+  margin: .25em;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--light);
+  transition-property: background-color;
+  transition-duration: 3s;
+}
+
+.square:hover {
+  transition-duration: 0s !important;
+}
+
+.footer {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  text-align: center;  
+}
+
+.footer__text {
+  display: inline-block;
+  padding: 2em;
+}
+
+.footer__link {
+  color: #a8dadc;
+  transition: color 200ms linear;
+}
+
+.footer__link:hover {
+  color: var(--light);
+}
