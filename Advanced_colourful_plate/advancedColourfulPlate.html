@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Colourful Plate</title>
+</head>
+<body>
+  <!-- App container -->
+  <div class="app">
+    <!-- Buttons -->
+    <div class="app__buttons">
+      <!-- Button group -->
+      <div class="app__buttons-group">
+        <h2 class="app__buttons-group-heading">animation speed: </h2>
+        <!-- Buttons -->
+        <button type="button" class="app__button" data-setting="speed" data-speed="10">slow</button>
+        <button type="button" class="app__button" data-setting="speed" data-speed="3">normal</button>
+        <button type="button" class="app__button" data-setting="speed" data-speed="0.5">fast</button>
+        <!-- Buttons -->
+      </div> 
+      <!-- Button group -->
+      <!-- Button group -->
+      <div class="app__buttons-group">
+        <h2 class="app__buttons-group-heading">color range: </h2>
+        <!-- Buttons -->
+        <button type="button" class="app-button" data-setting="color" data-color-range="0">red</button>
+        <button type="button" class="app-button" data-setting="color" data-color-range="100">green</button>
+        <button type="button" class="app-button" data-setting="color" data-color-range="200">blue</button>
+        <button type="button" class="app-button" data-setting="color" data-color-range="360">normal</button> 
+        <!-- Buttons -->
+      </div> 
+      <!-- Button group -->
+      <!-- Slider container -->
+      <div class="app__slider">
+        <!-- App slider -->
+        <input type="range" id="app-slider" class="app__slider-input" value="70" min="0" max="100" step="1" />
+        <!-- App slider -->
+        <!-- Saturation percentage -->
+        <p class="app__slider-percentage">Saturation: <span class="app__slider-percentage-number">70</span> %</p> 
+        <!-- Saturation percentage -->
+      </div> 
+      <!-- Slider container -->
+      <!-- Board -->
+      <div class="app_board"></div>
+      <!-- Board -->
+    </div> 
+    <!-- Buttons -->
+  </div> 
+  <!-- App container -->
+</body>
+</html>
