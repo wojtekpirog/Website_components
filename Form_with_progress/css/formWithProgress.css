@@ -14,23 +14,21 @@
 }
 
 body {
-  min-height: 100vh;
   font-family: var(--system-ui);
   font-size: 1.6rem;
   background-color: hsl(0, 0%, 10%);
   color: hsl(0, 0%, 80%);
 }
 
-main {
+.app {
   position: relative;
-  min-width: 100vw;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
 }
 
-.logo {
+.app__logo {
   position: absolute;
   top: 20px;
   left: 20px;
@@ -39,11 +37,20 @@ main {
   line-height: 1;
 }
 
-.logo__dev {
+.app__logo-dev {
   color: hsl(226, 70%, 50%);
 }
 
 .app__heading {
   text-align: center;
   text-transform: uppercase;
+}
+
+.app__footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 2em;
 }
