@@ -33,7 +33,7 @@ body {
 
 .app {
   width: 90%;
-  max-width: 1000px;
+  max-width: 830px;
 }
 
 .app__buttons {
@@ -83,6 +83,8 @@ body {
 
 .app__board {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .square {

@@ -26,24 +26,34 @@
         <h2 class="app__buttons-group-heading">color range: </h2>
         <!-- Buttons -->
         <button type="button" class="app__button" data-setting="color" data-color-range="0">red</button>
-        <button type="button" class="app__button" data-setting="color" data-color-range="100">green</button>
-        <button type="button" class="app__button" data-setting="color" data-color-range="200">blue</button>
+        <button type="button" class="app__button" data-setting="color" data-color-range="90">green</button>
+        <button type="button" class="app__button" data-setting="color" data-color-range="190">blue</button>
         <button type="button" class="app__button" data-setting="color" data-color-range="360">normal</button> 
         <!-- Buttons -->
       </div> 
       <!-- Button group -->
     </div> 
     <!-- Buttons -->
-    <!-- Slider container -->
+    <!-- Slider container (saturation) -->
     <div class="app__slider">
       <!-- App slider -->
-      <input type="range" id="app-slider" class="app__slider-input" value="70" min="0" max="100" step="1" />
+      <input type="range" class="app__slider-input app__slider-input--saturation" value="70" min="0" max="100" step="1" />
       <!-- App slider -->
       <!-- Saturation percentage -->
-      <p class="app__slider-percentage">Saturation: <span class="app__slider-percentage-number">70</span> %</p> 
+      <p class="app__slider-percentage">Saturation: <span class="app__slider-percentage-saturation">70</span> %</p> 
       <!-- Saturation percentage -->
     </div> 
-    <!-- Slider container -->
+    <!-- Slider container (saturation) -->
+    <!-- Slider container (lightness) -->
+    <div class="app__slider">
+      <!-- App slider -->
+      <input type="range" class="app__slider-input app__slider-input--brightness" value="50" min="0" max="100" step="1" />
+      <!-- App slider -->
+      <!-- Lightness percentage -->
+      <p class="app__slider-percentage">Brightness: <span class="app__slider-percentage-brightness">50</span> %</p> 
+      <!-- Lightness percentage -->
+    </div> 
+    <!-- Slider container (lightness) -->
     <!-- Board -->
     <div class="app__board"></div>
     <!-- Board -->
@@ -54,5 +64,6 @@
     <small class="footer__text">App created by: <a href="https://github.com/wojtekpirog" class="footer__link" target="_blank" rel="noopener">wojtekpirog</a></small>
   </footer> 
   <!-- App footer -->
+   <script src="./js/advancedColourfulPlate.js" defer></script>
 </body>
 </html>
