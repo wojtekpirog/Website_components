@@ -1,0 +1,49 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+
+  --system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--system-ui);
+  font-size: 1.6rem;
+  background-color: hsl(0, 0%, 10%);
+  color: hsl(0, 0%, 80%);
+}
+
+main {
+  position: relative;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 3.8rem;
+  font-style: italic;
+  line-height: 1;
+}
+
+.logo__dev {
+  color: hsl(226, 70%, 50%);
+}
+
+.app__heading {
+  text-align: center;
+  text-transform: uppercase;
+}

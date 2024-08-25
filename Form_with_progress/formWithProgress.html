@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form</title>
+  <link rel="stylesheet" href="./css/formWithProgress.css">
+</head>
+<body>
+  <header>
+    <!-- Logo -->
+    <h1 class="logo">Pir<span class="logo__dev">Dev</span>.com</h1> 
+    <!-- Logo -->
+  </header>
+  <main>
+    <!-- App container -->
+    <div class="app">
+      <h2 class="app__heading">Fake Form</h2>
+      <!-- Fake form -->
+      <form class="app__form">
+        <!-- Forms -->
+        <div class="app__page app__page--active" data-number="1">Form #1</div>
+        <div class="app__page" data-number="2">Form #2</div>
+        <div class="app__page" data-number="3">Form #3</div>
+        <div class="app__page" data-number="4">Form #4</div>
+        <div class="app__page" data-number="5">Form #5</div> 
+        <!-- Forms -->
+      </form>
+      <!-- Fake form -->
+      <!-- Progress -->
+      <div class="app__progress-box">
+        <!-- Progress bar -->
+        <div class="app__progress-bar"></div> 
+        <!-- Progress bar -->
+        <!-- Steps -->
+        <div class="app__step app__step--active">1</div> <!-- This step is active by default -->
+        <div class="app__step">2</div>
+        <div class="app__step">3</div>
+        <div class="app__step">4</div>
+        <div class="app__step">5</div> 
+        <!-- Steps -->
+      </div> 
+      <!-- Progress -->
+      <!-- Navigation -->
+      <div class="app__buttons">
+        <!-- Navigation button -->
+        <button type="button" class="app__button app__button--prev" disabled>
+          <img src="./images/chevron-left.svg" alt="Go to the previous part of the form">
+        </button>
+        <!-- Navigation button -->
+        <!-- Navigation button -->
+        <button type="button" class="app__button app__button--next">
+          <img src="./images/chevron-right.svg" alt="Go to the next part of the form">
+        </button>
+        <!-- Navigation button -->
+      </div> 
+      <!-- Navigation -->
+    </div> 
+    <!-- App container -->
+  </main>
+  footer
+</body>
+</html>
