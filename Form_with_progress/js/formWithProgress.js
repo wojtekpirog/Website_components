@@ -32,9 +32,32 @@ const handlePrevFormBtn = () => {
 }
 
 const handleNextFormBtn = () => {
-  currentForm += 1;
+  currentForm += 1; // Zwiększ numer aktualnego formularza o 1
   currentForm > formPages.length ? currentForm = formPages.length : false;
   handleProgressBar();
+}
+
+const handleBtnDisabled = () => {
+  if (currentForm === 1) {
+    prevFormBtn.disabled = true;
+  } else if (currentForm === formPages.length) {
+    nextFormBtn.disabled = true;
+  } else {
+    prevFormBtn.disabled = false;
+    nextFormBtn.disabled = false;
+  }
+}
+
+const handleForm = () => {
+  formPages.forEach((page) => {
+    const formNumber = parseInt(page.dataset.number);
+    
+    if (formNumber === currentForm) {
+      page.classList.add(".app__page--active");
+    } else {
+      page.classList.remove(".app__page--active");
+    }
+  });
 }
 
 const handleProgressBar = () => {
@@ -45,6 +68,8 @@ const handleProgressBar = () => {
 
   const activeSteps = document.querySelectorAll(".app__step--active");
   progressBar.style.width = (activeSteps.length - 1) / (steps.length - 1) * 100 + "%";
+  handleBtnDisabled();
+  handleForm();
 }
 
 document.addEventListener("DOMContentLoaded", main);
