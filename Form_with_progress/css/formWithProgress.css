@@ -11,13 +11,16 @@
   scroll-behavior: smooth;
 
   --system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --color-light: hsl(0, 0%, 80%);
+  --color-dark: hsl(0, 0%, 5%);
+  --royal-blue: hsl(226, 70%, 50%);
 }
 
 body {
   font-family: var(--system-ui);
   font-size: 1.6rem;
   background-color: hsl(0, 0%, 10%);
-  color: hsl(0, 0%, 80%);
+  color: var(--color-light);
 }
 
 .app {
@@ -42,8 +45,108 @@ body {
 }
 
 .app__heading {
+  margin-bottom: .5em;
   text-align: center;
   text-transform: uppercase;
+  font-weight: 600;
+}
+
+.app__form {
+  margin-bottom: 2em;
+  width: 600px;
+  height: 300px;
+  border: 2px solid var(--color-light);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.app__page {
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.4rem;
+  font-weight: 500;
+  padding: .5em;
+  background-color: hsl(0, 0%, 50%);
+  color: var(--color-dark);
+}
+
+.app__page:nth-child(even) {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+}
+
+.app__page--active {
+  display: flex;
+}
+
+.app__progress {
+  margin-bottom: 2em;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app__progress::before, .app__progress-bar {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 4px;
+}
+
+.app__progress::before {
+  content: "";
+  width: 100%;
+  background-color: var(--color-light);
+}
+
+.app__progress-bar {
+  width: 0;
+  background-color: var(--royal-blue);
+  z-index: 1;
+  transition: width 300ms 100ms linear;
+}
+
+.app__step {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  border: 2px solid var(--color-light);
+  border-radius: 25%;
+  transition: background-color 200ms linear, color 200ms linear;
+  z-index: 2;
+}
+
+.app__step--active {
+  background-color: var(--royal-blue);
+  color: var(--color-light);
+}
+
+.app__buttons {
+  text-align: center;
+}
+
+.app__button {
+  padding: .5em 1em;
+  line-height: 0.8;
+  border: 2px solid var(--color-light);
+  border-radius: 4px;
+  background-color: var(--royal-blue);
+  cursor: pointer;
+}
+
+.app__button:disabled {
+  background-color: var(--color-light);
+  opacity: .75;
+  cursor: default;
 }
 
 .app__footer {
