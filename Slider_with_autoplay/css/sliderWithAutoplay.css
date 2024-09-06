@@ -1,0 +1,95 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: sans-serif;
+  background-color: hsl(0, 0%, 10%);
+  color: hsl(0, 0%, 90%);
+}
+
+.app {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app__slider {
+  position: relative;
+  width: 800px;
+  height: 500px;
+  overflow: hidden;
+}
+
+.app__slider-box {
+  display: flex;
+  transform: translateX(0);
+  transition: transform 300ms linear;
+}
+
+.app__slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.app__button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: hsla(0, 0%, 20%, .5);
+  color: hsl(0, 0%, 90%);
+  border: 2px solid transparent;
+  border-radius: 4px;
+  padding: 1em;
+  font-size: 2.4rem;
+  cursor: pointer;
+}
+
+.app__button > span {
+  display: inline-block;
+  transition: transform 200ms linear;
+}
+
+.app__button:hover > span {
+  transform: scale(.75);
+}
+
+.app__button--prev {
+  left: 0;
+}
+
+.app__button--next {
+  right: 0;
+}
+
+.app__footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2em;
+  text-align: center;
+}
+
+.app__footer-link {
+  text-decoration: none;
+  color: hsl(200, 75%, 50%);
+  transition: color 300ms;
+}
+
+.app__footer-link:hover {
+  color: hsl(200, 75%, 70%);
+}
