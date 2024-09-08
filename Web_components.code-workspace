@@ -1,11 +1,8 @@
 {
 	"folders": [
 		{
+			"name": "Web_components",
 			"path": "."
 		}
-	],
-	"settings": {
-		"editor.defaultFormatter": null,
-		"editor.formatOnSave": false
-	}
+	]
 }
