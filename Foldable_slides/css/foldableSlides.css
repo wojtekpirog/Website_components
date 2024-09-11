@@ -11,6 +11,26 @@
   scroll-behavior: smooth;
 
   --system-font: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --spring-color: #5bca5b;
+  --summer-color: #ffd900;
+  --autumn-color: #e09213;
+  --winter-color: #4198df;
+}
+
+[data-bg="spring"] {
+  background-color: var(--spring-color);
+}
+
+[data-bg="summer"] {
+  background-color: var(--summer-color);
+}
+
+[data-bg="autumn"] {
+  background-color: var(--autumn-color);
+}
+
+[data-bg="winter"] {
+  background-color: var(--winter-color);
 }
 
 body {
@@ -20,6 +40,140 @@ body {
   align-items: center;
   font-size: 1.6rem;
   font-family: var(--system-font);
-  /* background-color: hsl(0, 0%, 15%);
-  color: hsl(0, 0%, 85%); */
+}
+
+.app {
+  width: 94%;
+  max-width: 1200px;
+  height: 600px;
+  display: flex;
+  padding: .5em;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px hsla(0, 0%, 0%, .4);
+}
+
+.app__card {
+  margin: 4px;
+  position: relative;
+  flex-grow: 1;
+  border-radius: 10px;
+  background-position: center center;
+  background-size: cover;
+  transition: flex-grow 800ms linear;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.app__card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .3;
+}
+
+.app__card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(0, 0%, 0%, .4);
+  opacity: 1;
+  transition: opacity 800ms linear;
+}
+
+.app__card--spring {
+  background-image: url("https://img.freepik.com/free-photo/selective-focus-shot-beautiful-tree-blooming-clear-sky_181624-9325.jpg?t=st=1725890060~exp=1725893660~hmac=b66d04fe0ae5cbff029ff43213c96c49c3f84fef10d8de17b7ec609cadb9172c&w=1380");
+}
+
+.app__card--spring::before {
+  background-color: var(--spring-color);
+}
+
+.app__card--summer {
+  background-image: url("https://cdn.pixabay.com/photo/2022/07/13/10/54/mountains-7319059_1280.jpg");
+}
+
+.app__card--summer::before {
+  background-color: var(--summer-color);
+}
+
+.app__card--autumn {
+  background-image: url("https://cdn.pixabay.com/photo/2019/09/10/10/08/fall-4465774_1280.jpg");
+}
+
+.app__card--autumn::before {
+  background-color: var(--autumn-color);
+}
+
+.app__card--winter {
+  background-image: url("https://cdn.pixabay.com/photo/2017/12/03/22/11/winter-landscape-2995987_1280.jpg");
+}
+
+.app__card--winter::before {
+  background-color: var(--winter-color);
+}
+
+.app__card--active {
+  flex-grow: 8;
+}
+
+.app__card-text {
+  position: absolute;
+  width: 80%;
+  left: 50%;
+  bottom: 10%;
+  padding: 1em;
+  color: hsl(0, 0%, 100%);
+  transform: translateX(-50%);
+  border-radius: 6px;
+  z-index: 1;
+}
+
+.app__card--active > .app__card-text {
+  animation: showTextBackground 1s 400ms forwards;
+}
+
+.app__card-text-season {
+  margin-bottom: .5em;
+  letter-spacing: .15rem;
+  transform: rotate(-90deg);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.app__card--active .app__card-text-season {
+  display: none;
+}
+
+.app__card-text-description {
+  display: none;
+  opacity: 0;
+  font-size: 1.6rem;
+}
+
+.app__card--active .app__card-text-description {
+  display: block;
+  animation: showText 1s 400ms forwards;
+}
+
+.app__card--active::after {
+  opacity: 0;
+}
+
+@keyframes showTextBackground {
+  to {
+    background-color: hsla(0, 0%, 0%, .4);
+  }
+}
+
+@keyframes showText {
+  to {
+    opacity: 1;
+  }
 }
