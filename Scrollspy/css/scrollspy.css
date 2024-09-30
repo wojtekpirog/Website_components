@@ -22,7 +22,7 @@ body {
   font-size: 1.6rem;
   font-family: var(--system-font);
   background-color: hsl(0, 0%, 15%);
-  color: hsl(0, 0%, 85%);
+  color: hsl(0, 0%, 15%);
 }
 
 .navbar {
@@ -31,13 +31,14 @@ body {
   left: 0;
   width: 100%;
   background-color: #000;
+  opacity: .8;
   text-align: center;
 }
 
 .navbar__link {
   display: inline-block;
   margin: 0 2em;
-  padding: 1em;
+  padding: 2em;
   text-decoration: none;
   color: hsl(0, 0%, 85%);
 }
@@ -61,11 +62,11 @@ main {
 }
 
 .section:nth-child(odd) {
-  background-color: royalblue;
+  background-color: white;
 }
 
 .section:nth-child(even) {
-  background-color: goldenrod;
+  background-color: red;
 }
 
 .section:last-child {
