@@ -14,32 +14,23 @@ const addListeners = () => {
 }
 
 const runAnimation = (event) => {
-  // Position of the cursor on the viewport
-  const horizontalPosition = event.clientY;
-  const verticalPosition = event.clientX;
-  // Position of the button on the viewport
-  const buttonTopPosition = event.target.offsetTop;
-  const buttonLeftPosition = event.target.offsetLeft;
+  const cursorY = event.pageY; // `event.pageY` to odległość kursora od górnej krawędzi strony
+  const cursorX = event.pageX; // `event.pageX` to odległość kursora od lewej krawędzi strony
 
-  const insideButtonTop = horizontalPosition - buttonTopPosition;
-  const insideButtonLeft = verticalPosition - buttonLeftPosition;
+  const btnOffsetTop = event.target.offsetTop; // `event.target.offsetTop` to odległość górnej krawędzi elementu od górnej krawędzi strony
+  const btnOffsetLeft = event.target.offsetLeft; // `event.target.offsetLeft` to odległość lewej krawędzi elementu od lewej krawędzi strony
 
-  const buttonCircle = document.createElement("span");
-  buttonCircle.classList.add("button__circle");
-  buttonCircle.style.top = `${insideButtonTop}px`;
-  buttonCircle.style.left = `${insideButtonLeft}px`;
-  buttonCircle.style.animationDuration = "300ms";
-  buttonCircle.style.animationDelay = "100ms";
+  const top = cursorY - btnOffsetTop;
+  const left = cursorX - btnOffsetLeft;
 
-  event.target.appendChild(buttonCircle);
-
-  const indexOfMsForDelay = buttonCircle.style.animationDelay.indexOf("ms");
-  const animationDelay = Number(buttonCircle.style.animationDelay.slice(0, indexOfMsForDelay));
-
-  const indexOfMsForDuration = buttonCircle.style.animationDuration.indexOf("ms");
-  const animationDuration = Number(buttonCircle.style.animationDuration.slice(0, indexOfMsForDuration));
-
-  setTimeout(() => buttonCircle.remove(), animationDelay + animationDuration);
+  const circle = document.createElement("span");
+  circle.classList.add("button__circle");
+  circle.style.setProperty("--top", `${top}px`);
+  circle.style.setProperty("--left", `${left}px`);
+  // Dodaj do DOM-u
+  event.target.appendChild(circle);
+  // Usuń z DOM-u po zakończeniu animacji
+  event.target.addEventListener("animationend", () => circle.remove());
 }
 
 window.addEventListener("DOMContentLoaded", main);
