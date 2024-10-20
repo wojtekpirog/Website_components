@@ -5,7 +5,7 @@ let prevFormBtn;
 let nextFormBtn;
 
 // Zmienna globalna przechowująca numer aktualnego formularza
-let currentForm = 1;
+let currentStep = 1;
 
 const main = () => {
   prepareDomElements();
@@ -25,51 +25,59 @@ const addListeners = () => {
   nextFormBtn.addEventListener("click", handleNextFormBtn);
 }
 
-const handlePrevFormBtn = () => {
-  currentForm -= 1;
-  currentForm < 1 ? currentForm = 1 : false;
-  handleProgressBar();
-}
-
 const handleNextFormBtn = () => {
-  currentForm += 1; // Zwiększ numer aktualnego formularza o 1
-  currentForm > formPages.length ? currentForm = formPages.length : false;
-  handleProgressBar();
+  currentStep += 1;
+  currentStep > formPages.length && (currentStep = formPages.length);
+  handleProgress();
 }
 
-const handleBtnDisabled = () => {
-  if (currentForm === 1) {
-    prevFormBtn.disabled = true;
-  } else if (currentForm === formPages.length) {
-    nextFormBtn.disabled = true;
-  } else {
-    prevFormBtn.disabled = false;
-    nextFormBtn.disabled = false;
-  }
+const handlePrevFormBtn = () => {
+  currentStep -= 1;
+  currentStep < 1 && (currentStep = 1);
+  handleProgress();
+}
+
+const handleProgress = () => {
+  handleForm();
+  handleProgressBar();
+  handleBtnDisabled();
 }
 
 const handleForm = () => {
-  formPages.forEach((page) => {
-    const formNumber = parseInt(page.dataset.number);
-    
-    if (formNumber === currentForm) {
-      page.classList.add(".app__page--active");
+  formPages.forEach((page, index) => {
+    if (currentStep === index + 1) {
+      page.classList.add("app__page--active");
+      page.setAttribute("aria-current", "page");
     } else {
-      page.classList.remove(".app__page--active");
+      page.classList.remove("app__page--active");
+      page.removeAttribute("aria-current");
     }
   });
 }
 
 const handleProgressBar = () => {
-  steps.forEach((step, index) => {
-    const currentStep = index + 1;
-    currentStep <= currentForm ? step.classList.add("app__step--active") : step.classList.remove("app__step--active");
-  });
+  steps.forEach((step, index) => { 
+    currentStep === index + 1
+      ? step.setAttribute("aria-current", "step")
+      : step.removeAttribute("aria-current"); 
 
-  const activeSteps = document.querySelectorAll(".app__step--active");
-  progressBar.style.width = (activeSteps.length - 1) / (steps.length - 1) * 100 + "%";
-  handleBtnDisabled();
-  handleForm();
+    currentStep >= index + 1
+      ? step.classList.add("app__step--active")
+      : step.classList.remove("app__step--active"); 
+      
+    progressBar.style.setProperty("--progress", `${(currentStep - 1) / (steps.length - 1) * 100}%`);
+  });
+}
+
+const handleBtnDisabled = () => {
+  if (currentStep === 1) {
+    prevFormBtn.disabled = true;
+  } else if (currentStep === formPages.length) {
+    nextFormBtn.disabled = true;
+  } else {
+    prevFormBtn.disabled = false;
+    nextFormBtn.disabled = false;
+  }
 }
 
 document.addEventListener("DOMContentLoaded", main);

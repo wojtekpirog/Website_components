@@ -20,11 +20,11 @@
         <!-- Fake form -->
         <form class="app__form">
           <!-- Forms -->
-          <div class="app__page app__page--active" data-number="1">Form #1</div> <!-- This form is active by default -->
-          <div class="app__page" data-number="2">Form #2</div>
-          <div class="app__page" data-number="3">Form #3</div>
-          <div class="app__page" data-number="4">Form #4</div>
-          <div class="app__page" data-number="5">Form #5</div> 
+          <div class="app__page app__page--active" aria-current="page">Form #1</div> <!-- This form is active by default -->
+          <div class="app__page">Form #2</div>
+          <div class="app__page">Form #3</div>
+          <div class="app__page">Form #4</div>
+          <div class="app__page">Form #5</div> 
           <!-- Forms -->
         </form>
         <!-- Fake form -->
@@ -34,24 +34,24 @@
           <div class="app__progress-bar"></div> 
           <!-- Progress bar -->
           <!-- Steps -->
-          <div class="app__step app__step--active">1</div> <!-- This step is active by default -->
-          <div class="app__step">2</div>
-          <div class="app__step">3</div>
-          <div class="app__step">4</div>
-          <div class="app__step">5</div> 
+          <div class="app__step app__step--active" aria-label="You are on form step number 1" aria-current="step">1</div> <!-- This step is active by default -->
+          <div class="app__step" aria-label="You are on form step number 2">2</div>
+          <div class="app__step" aria-label="You are on form step number 3">3</div>
+          <div class="app__step" aria-label="You are on form step number 4">4</div>
+          <div class="app__step" aria-label="You are on form step number 5">5</div> 
           <!-- Steps -->
         </div> 
         <!-- Progress -->
         <!-- Navigation -->
         <div class="app__buttons">
           <!-- Navigation button -->
-          <button type="button" class="app__button app__button--prev" disabled>
-            <img src="./images/chevron-left.svg" alt="Go to the previous part of the form">
+          <button type="button" class="app__button app__button--prev" aria-label="Go to the previous form step" disabled>
+            <img src="./images/chevron-left.svg" alt="Go to the previous step of the form">
           </button>
           <!-- Navigation button -->
           <!-- Navigation button -->
-          <button type="button" class="app__button app__button--next">
-            <img src="./images/chevron-right.svg" alt="Go to the next part of the form">
+          <button type="button" class="app__button app__button--next" aria-label="Go to the next form step">
+            <img src="./images/chevron-right.svg" alt="Go to the next step of the form">
           </button>
           <!-- Navigation button -->
         </div> 

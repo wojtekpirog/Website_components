@@ -41,7 +41,7 @@ body {
 }
 
 .app__logo-dev {
-  color: hsl(226, 70%, 50%);
+  color: var(--royal-blue);
 }
 
 .app__heading {
@@ -52,18 +52,22 @@ body {
 }
 
 .app__form {
+  position: relative;
   margin-bottom: 2em;
   width: 600px;
   height: 300px;
+  display: flex;
   border: 2px solid var(--color-light);
   border-radius: 8px;
   overflow: hidden;
 }
 
 .app__page {
+  position: absolute;
   width: 100%;
   height: 100%;
-  display: none;
+  opacity: 0;
+  display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2.4rem;
@@ -71,6 +75,7 @@ body {
   padding: .5em;
   background-color: hsl(0, 0%, 50%);
   color: var(--color-dark);
+  transition: opacity 300ms 100ms linear;
 }
 
 .app__page:nth-child(even) {
@@ -79,7 +84,7 @@ body {
 }
 
 .app__page--active {
-  display: flex;
+  opacity: 1;
 }
 
 .app__progress {
@@ -104,7 +109,9 @@ body {
 }
 
 .app__progress-bar {
-  width: 0;
+  --progress: 0%;
+
+  width: var(--progress);
   background-color: var(--royal-blue);
   z-index: 1;
   transition: width 300ms 100ms linear;
@@ -145,7 +152,7 @@ body {
 
 .app__button:disabled {
   background-color: var(--color-light);
-  opacity: .75;
+  opacity: .5;
   cursor: default;
 }
 
