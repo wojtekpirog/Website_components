@@ -3,15 +3,16 @@ let sliderImages;
 let sliderBox;
 let prevSlideBtn;
 let nextSlideBtn;
+let pauseAutoplayBtn;
+let resumeAutoplayBtn;
 
 let sliderWidth;
-let carouselSpeed = 3000;
 let imgIndex = 0;
+let carouselSpeed = 3000;
 
 const main = () => {
   prepareDOMElements();
   addListeners();
-  getSliderWidth();
   handleCarousel();
 }
 
@@ -21,20 +22,31 @@ const prepareDOMElements = () => {
   sliderBox = document.querySelector(".app__slider-box");
   prevSlideBtn = document.querySelector(".app__button--prev");
   nextSlideBtn = document.querySelector(".app__button--next");
+  pauseAutoplayBtn = document.querySelector(".app__button--stop");
+  resumeAutoplayBtn = document.querySelector(".app__button--play");
 }
 
 const addListeners = () => {
   prevSlideBtn.addEventListener("click", handlePrevSlideBtn);
   nextSlideBtn.addEventListener("click", handleNextSlideBtn);
+  pauseAutoplayBtn.addEventListener("click", pauseAutoplay);
+  resumeAutoplayBtn.addEventListener("click", resumeAutoplay);
 }
 
-const getSliderWidth = () => {
-  sliderWidth = window.getComputedStyle(slider).width;
-  sliderWidth = Number(sliderWidth.slice(0, sliderWidth.length - 2));
-  console.log(sliderWidth);
+const pauseAutoplay = () => {
+  clearInterval(startCarousel);
+  pauseAutoplayBtn.style.display = "none";
+  resumeAutoplayBtn.style.display = "block";
+}
+
+const resumeAutoplay = () => {
+  startCarousel = setInterval(handleCarousel, carouselSpeed);
+  resumeAutoplayBtn.style.display = "none";
+  pauseAutoplayBtn.style.display = "block";
 }
 
 const handleCarousel = () => {
+  sliderWidth = slider.offsetWidth;
   imgIndex += 1;
   changeImage();
 }
@@ -46,26 +58,25 @@ const changeImage = () => {
     imgIndex = sliderImages.length - 1;
   }
 
-  sliderBox.style.transform = `translateX(-${sliderWidth * imgIndex}px)`;
+  sliderBox.style.setProperty("--offset", `-${sliderWidth * imgIndex}px`);
 }
 
-const resetInterval = () => {
-  clearInterval(startCarousel);
-  startCarousel = setInterval(handleCarousel, carouselSpeed);
-}
+let startCarousel = setInterval(handleCarousel, carouselSpeed);
 
 const handlePrevSlideBtn = () => {
   imgIndex -= 1;
-  changeImage();
   resetInterval();
 }
 
 const handleNextSlideBtn = () => {
   imgIndex += 1;
-  changeImage();
   resetInterval();
 }
 
-let startCarousel = setInterval(handleCarousel, carouselSpeed);
+const resetInterval = () => {
+  changeImage();
+  clearInterval(startCarousel);
+  startCarousel = setInterval(handleCarousel, carouselSpeed);
+}
 
 document.addEventListener("DOMContentLoaded", main);

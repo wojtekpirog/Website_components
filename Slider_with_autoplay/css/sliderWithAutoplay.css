@@ -29,13 +29,15 @@ body {
 .app__slider {
   position: relative;
   width: 800px;
-  height: 500px;
+  height: 220px;
   overflow: hidden;
 }
 
 .app__slider-box {
+  --offset: 0;
+
   display: flex;
-  transform: translateX(0);
+  transform: translateX(var(--offset));
   transition: transform 300ms linear;
 }
 
@@ -75,6 +77,27 @@ body {
   right: 0;
 }
 
+.app__button--stop,
+.app__button--play {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 200ms linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app__button--play {
+  display: none;
+}
+
+.app__button--stop:hover,
+.app__button--play:hover {
+  opacity: 1;
+}
+
 .app__footer {
   position: absolute;
   left: 0;
@@ -92,4 +115,16 @@ body {
 
 .app__footer-link:hover {
   color: hsl(200, 75%, 70%);
+}
+
+@media screen and (min-width: 400px) {
+  .app__slider {
+    height: 280px;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .app__slider {
+    height: 400px;
+  }
 }

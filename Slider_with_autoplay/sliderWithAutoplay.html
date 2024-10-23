@@ -13,7 +13,7 @@
     <!-- App slider -->
     <div class="app__slider">
       <!-- Slider box (images) -->
-      <div class="app__slider-box">
+      <div class="app__slider-box" aria-live="polite">
         <!-- Slider images -->
         <img class="app__slider-image" src="./images/Aisle.jpg" alt="A dirt road running through a forest"> 
         <img class="app__slider-image" src="./images/beach.jpg" alt="Sea shore by an orange sunset">
@@ -22,15 +22,21 @@
       </div> 
       <!-- Slider box (images) -->
       <!-- Slider buttons -->
-      <button type="button" class="app__button app__button--prev" aria-label="Previous slide"><span>&lt;</span></button>
-      <button type="button" class="app__button app__button--next" aria-label="Next slide"><span>&gt;</span></button>
+      <button type="button" class="app__button app__button--prev" aria-label="Show the previous slide"><span aria-hidden="true">&lt;</span></button>
+      <button type="button" class="app__button app__button--next" aria-label="Show the next slide"><span aria-hidden="true">&gt;</span></button>
+      <button type="button" class="app__button app__button--stop" aria-label="Stop autoplay">
+        <img data-action="stop" src="./images/player-pause.svg" alt="Click this button to stop autoplay">
+      </button>
+      <button type="button" class="app__button app__button--play" aria-label="Start autoplay">
+        <img data-action="play" src="./images/player-play.svg" alt="Click this button to start autoplay">
+      </button>
       <!-- Slider buttons -->
       <!--  -->
     </div> 
     <!-- App slider -->
     <!-- App footer -->
     <footer class="app__footer">
-      <small>Zmiana App created by: <a href="https://github.com/wojtekpirog" class="app__footer-link" target="_blank" rel="noopener">wojtekpirog</a></small>
+      <small>App created by: <a href="https://github.com/wojtekpirog" class="app__footer-link" target="_blank" rel="noopener">wojtekpirog</a></small>
     </footer>
     <!-- App footer -->
   </div>

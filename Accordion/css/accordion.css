@@ -1,0 +1,79 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  --system-font: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --almost-white: hsl(0, 0%, 94%);
+  --light: hsl(0, 0%, 85%);
+  --dark: hsl(0, 0%, 15%);
+  --royal-red: #F6483B;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  font-family: var(--system-font);
+  background-color: var(--royal-red);
+}
+
+.app {
+  width: 94%;
+  max-width: 600px;
+  text-align: center;
+}
+.app__header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-bottom: 1.5em;
+  padding: 0.25em;
+  color: var(--light);
+  font-size: 6rem;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 0.7;
+}
+.app__accordion {
+  background-color: var(--almost-white);
+  padding: 0.5em;
+  border: 2px solid var(--dark);
+  border-radius: 8px;
+  text-align: left;
+}
+.app__accordion-box {
+  margin: 0.5em;
+}
+.app__accordion-button {
+  width: 100%;
+  padding: 0.75em 1em;
+  font-size: 2rem;
+  background-color: var(--light);
+  border: none;
+  border-radius: 6px;
+  text-align: left;
+  cursor: pointer;
+}
+.app__accordion-button:hover, .app__accordion-button:focus {
+  outline: none;
+  color: var(--light);
+  background-color: var(--royal-red);
+}
+.app__accordion-text-box {
+  display: none;
+  padding: 1em 2em;
+  line-height: 1.4;
+}
+.app__accordion-text-box--active {
+  display: block;
+}/*# sourceMappingURL=styles.css.map */
