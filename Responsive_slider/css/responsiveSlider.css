@@ -10,7 +10,7 @@
   font-size: 62.5%;
   scroll-behavior: smooth;
 
-  --system-font: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --system-font: "Poppins", sans-serif;
   --light: hsl(0, 0%, 85%);
   --dark: hsl(0, 0%, 15%);
   --dark-blue: hsl(231, 96%, 31%);
@@ -24,8 +24,25 @@ body {
   align-items: center;
   font-size: 1.6rem;
   font-family: var(--system-font);
-  background: linear-gradient(to bottom right, var(--dark-blue), var(--violet));
+  background-color: var(--dark);
   color: hsl(0, 0%, 85%);
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1em;
+  font-size: 2.4rem;
+  font-style: italic;
+}
+
+.header__logo {
+  font-weight: 400;
+}
+
+.header__logo > span {
+  color: var(--violet);
 }
 
 .wrapper {
@@ -56,14 +73,8 @@ body {
 .wrapper__carrousel-card-image {
   width: 100px;
   height: 100px;
-  border: 4px solid var(--violet);
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.wrapper__carrousel-card-image > img {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
   object-position: top;
+  border: 4px solid var(--violet);
+  border-radius: 8px;
 }
