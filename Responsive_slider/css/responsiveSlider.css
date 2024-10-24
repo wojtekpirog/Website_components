@@ -12,7 +12,8 @@
 
   --system-font: "Poppins", sans-serif;
   --light: hsl(0, 0%, 85%);
-  --dark: hsl(0, 0%, 15%);
+  --dark: hsl(0, 0%, 25%);
+  --darker: hsl(0, 0%, 15%);
   --dark-blue: hsl(231, 96%, 31%);
   --violet: hsl(260, 100%, 66%);
 }
@@ -24,7 +25,7 @@ body {
   align-items: center;
   font-size: 1.6rem;
   font-family: var(--system-font);
-  background-color: var(--dark);
+  background-color: var(--darker);
   color: hsl(0, 0%, 85%);
 }
 
@@ -46,18 +47,20 @@ body {
 }
 
 .wrapper {
+  position: relative;
   width: 94%;
   max-width: 1100px;
 }
 
 .wrapper__list {
   list-style-type: none;
+  overflow: hidden;
 }
 
 .wrapper__carrousel {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: calc((100% / 3) - 12px);
+  grid-auto-columns: 100%;
   gap: 16px;
 }
 
@@ -65,16 +68,63 @@ body {
   height: 350px;
   padding: 1em;
   background-color: var(--light);
-  color: var(--dark);
+  color: var(--darker);
   border-radius: 8px;
+  text-align: center;
   overflow: hidden;
 }
 
 .wrapper__carrousel-card-image {
-  width: 100px;
-  height: 100px;
+  margin-top: 1.15em;
+  width: 140px;
+  height: 140px;
   object-fit: cover;
   object-position: top;
   border: 4px solid var(--violet);
-  border-radius: 8px;
+  border-radius: 50%;
+}
+
+.wrapper__carrousel-card-name {
+  margin: .75em 0 .35em;
+  font-weight: 600;
+}
+
+.wrapper__carrousel-card-jobtitle {
+  font-size: 1.8rem;
+  color: var(--dark);
+}
+
+.wrapper__button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.wrapper__button img {
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper__button--left {
+  left: -1.85em;
+}
+
+.wrapper__button--right {
+  right: -1.5em;
+}
+
+@media screen and (min-width: 576px) {
+  .wrapper__carrousel {
+    grid-auto-columns: calc((100% / 2) - 12px);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .wrapper__carrousel {
+    grid-auto-columns: calc((100% / 3) - 12px);
+  }
 }
