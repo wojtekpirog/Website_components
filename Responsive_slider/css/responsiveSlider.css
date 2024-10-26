@@ -55,6 +55,27 @@ body {
 .wrapper__list {
   list-style-type: none;
   overflow: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.wrapper__list::-webkit-scrollbar {
+  display: none;
+}
+
+.wrapper__list:hover {
+  cursor: grab;
+}
+
+.wrapper__list--dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+
+.wrapper__list--dragging .wrapper__carrousel-card {
+  cursor: grabbing;
+  user-select: none;
 }
 
 .wrapper__carrousel {
@@ -71,7 +92,7 @@ body {
   color: var(--darker);
   border-radius: 8px;
   text-align: center;
-  overflow: hidden;
+  scroll-snap-align: start;
 }
 
 .wrapper__carrousel-card-image {

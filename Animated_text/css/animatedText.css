@@ -1,0 +1,76 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #5bca5b;
+  font-family: sans-serif;
+  font-size: 1rem;
+}
+
+.button {
+  padding: .75em 1.5em;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #e5e5e5;
+  cursor: pointer;
+}
+
+p {
+  font-size: 3rem;
+  color: #fff;
+}
+
+.modal-button {
+  position: absolute;
+  top: 200px;
+}
+
+.modal {
+  position: absolute;
+  top: 200px;
+  width: 600px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.modal--active {
+  display: flex;
+}
+
+.modal-input {
+  width: 100%;
+  padding: 1em;
+  font-size: 1.6rem;
+  font-family: sans-serif;
+  border: 1px solid #000;
+  border-radius: 4px;
+}
+
+.modal-input:focus {
+  background-color: #e5e5e5;
+}
+
+.error-message {
+  margin: 1em 0;
+  font-size: 1.6rem;
+  color: red;
+}
