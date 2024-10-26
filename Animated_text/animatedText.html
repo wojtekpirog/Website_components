@@ -10,12 +10,13 @@
   <button type="button" class="button modal-button">Wprowadź tekst</button>
   <!-- Modal -->
   <div class="modal">
-    <input type="text" class="modal-input" required/>
-    <p class="error-message"></p>
+    <label for="modal-input" class="sr-only">Wpisz tekst do wyświetlenia</label>
+    <input id="modal-input" type="text" class="modal-input" aria-describedby="error-message" aria-invalid="false" required/>
+    <p id="error-message" class="error-message" aria-hidden="true"></p>
     <button type="button" class="button modal-save-button">Zapisz</button>
   </div>
   <!-- Textbox -->
-  <p class="text"></p>
+  <p class="text" aria-hidden="true"></p>
   <script src="./js/animatedText.js" defer></script>
 </body>
 </html>

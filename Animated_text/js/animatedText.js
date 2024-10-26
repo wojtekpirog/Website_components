@@ -11,6 +11,7 @@ let index = 1;
 let speed = 100; // 100 milliseconds of animation speed
 
 function printText(inputValue) {
+  text.setAttribute("aria-hidden", "false");
   text.textContent = inputValue.slice(0, index);
   index += 1;
   
@@ -20,6 +21,7 @@ function printText(inputValue) {
 
 function openModal() {
   modal.classList.add("modal--active");
+  modalInput.focus();
 }
 
 function runAnimation() {
@@ -27,6 +29,8 @@ function runAnimation() {
   inputValue = modalInput.value;
   
   if (!inputValue) {
+    modalInput.setAttribute("aria-invalid", "true");
+    modalError.setAttribute("aria-hidden", "false");
     modalError.textContent = "Wprowadź tekst";
   } else {
     clearModal();
@@ -36,13 +40,16 @@ function runAnimation() {
 }
 
 function clearModal() {
+  modalError.setAttribute("aria-hidden", "true");
   modalError.textContent = "";
+  modalInput.setAttribute("aria-invalid", "false");
   modalInput.value = "";
 }
 
 function closeModal() {
   clearTimeout(timeout);
   runAnimation();
+  openModalButton.focus();
 }
 
 openModalButton.addEventListener("click", openModal);
