@@ -78,6 +78,13 @@ body {
   margin-bottom: .5em;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 @keyframes arrowMove {
   0% {
     transform: translateY(0);
