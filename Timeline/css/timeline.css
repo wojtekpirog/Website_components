@@ -1,0 +1,86 @@
+/*** RESET CSS ***/
+*, *::before, *::after {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  box-sizing: border-box;
+}
+
+body {
+  /* recommended line-height */
+  line-height: 1.6;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  overflow-wrap: break-word;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+:root {
+  --dark: hsl(0, 0%, 15%);
+  --light: hsl(0, 0%, 85%);
+  --darker: hsl(0, 0%, 10%);
+  --violet: hsl(260, 100%, 66%);
+  --royal-blue: hsl(226, 70%, 50%);
+
+  background-color: var(--dark);
+  color: var(--light);
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+}
+
+.wrapper__list {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 0;
+  margin: 0 2em;
+}
+
+.wrapper__list-item {
+  position: relative;
+  margin-bottom: 2em;
+  padding: 2em;
+  width: 50%;
+  border: 2px solid var(--royal-blue);
+  border-radius: 8px;
+}
+
+.wrapper__list-item::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 10px);
+  width: 20px;
+  height: 20px;
+  background-color: var(--royal-blue);
+  border-radius: 50%;
+}
+
+.wrapper__list-item:nth-child(even) {
+  align-self: flex-end;
+  transform: translateX(20px);
+}
+
+.wrapper__list-item:nth-child(odd) {
+  align-self: flex-start;
+  transform: translateX(-20px);
+}
+
+.wrapper__list-item:nth-child(even)::before {
+  left: -38px;
+}
