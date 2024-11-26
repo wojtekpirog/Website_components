@@ -1,0 +1,41 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+
+  --system-font: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  font-family: var(--system-font);
+  background-color: hsl(0, 0%, 15%);
+  color: hsl(0, 0%, 85%);
+}
+
+.image-box {
+  overflow: hidden;
+}
+
+.image-box__image {
+  --transform-origin-x: 50%;
+  --transform-origin-y: 50%;
+
+  transform-origin: var(--transform-origin-x) var(--transform-origin-y);
+}
+
+.image-box__image--zoom {
+  cursor: zoom-in;
+  transform: scale(1.75);
+}
