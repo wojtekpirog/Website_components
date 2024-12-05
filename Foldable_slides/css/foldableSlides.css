@@ -45,34 +45,24 @@ body {
 .app {
   width: 94%;
   max-width: 1200px;
-  height: 600px;
   display: flex;
-  padding: .5em;
-  background-color: hsl(0, 0%, 100%);
+  padding: 0.5em;
+  background-color: #fff;
   border-radius: 10px;
-  box-shadow: 10px 10px 10px hsla(0, 0%, 0%, .4);
+  box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.5)
 }
 
 .app__card {
   margin: 4px;
+  height: 600px;
   position: relative;
   flex-grow: 1;
   border-radius: 10px;
-  background-position: center center;
+  background-position: center;
   background-size: cover;
-  transition: flex-grow 800ms linear;
+  transition: flex-grow 800ms ease-in-out;
   overflow: hidden;
   cursor: pointer;
-}
-
-.app__card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: .3;
 }
 
 .app__card::after {
@@ -82,98 +72,109 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: hsla(0, 0%, 0%, .4);
-  opacity: 1;
-  transition: opacity 800ms linear;
-}
-
-.app__card--spring {
-  background-image: url("https://img.freepik.com/free-photo/selective-focus-shot-beautiful-tree-blooming-clear-sky_181624-9325.jpg?t=st=1725890060~exp=1725893660~hmac=b66d04fe0ae5cbff029ff43213c96c49c3f84fef10d8de17b7ec609cadb9172c&w=1380");
-}
-
-.app__card--spring::before {
-  background-color: var(--spring-color);
-}
-
-.app__card--summer {
-  background-image: url("https://cdn.pixabay.com/photo/2022/07/13/10/54/mountains-7319059_1280.jpg");
-}
-
-.app__card--summer::before {
-  background-color: var(--summer-color);
-}
-
-.app__card--autumn {
-  background-image: url("https://cdn.pixabay.com/photo/2019/09/10/10/08/fall-4465774_1280.jpg");
-}
-
-.app__card--autumn::before {
-  background-color: var(--autumn-color);
-}
-
-.app__card--winter {
-  background-image: url("https://cdn.pixabay.com/photo/2017/12/03/22/11/winter-landscape-2995987_1280.jpg");
-}
-
-.app__card--winter::before {
-  background-color: var(--winter-color);
+  background-color: rgba(0, 0, 0, .5);
+  transition: opacity 500ms;
 }
 
 .app__card--active {
   flex-grow: 8;
 }
 
-.app__card-text {
-  position: absolute;
-  width: 80%;
-  left: 50%;
-  bottom: 10%;
-  padding: 1em;
-  color: hsl(0, 0%, 100%);
-  transform: translateX(-50%);
-  border-radius: 6px;
-  z-index: 1;
+.app__card--active::after {
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .app__card--active > .app__card-text {
-  animation: showTextBackground 1s 400ms forwards;
-}
-
-.app__card-text-season {
-  margin-bottom: .5em;
-  letter-spacing: .15rem;
-  transform: rotate(-90deg);
-  text-transform: uppercase;
-  line-height: 1;
+  animation: showBackground 800ms 800ms ease-in-out forwards;
 }
 
 .app__card--active .app__card-text-season {
   display: none;
 }
 
+.app__card--active .app__card-text-description {
+  display: block;
+  animation: showDescription 800ms 1000ms ease-in-out forwards;
+}
+
+.app__card--spring {
+  background-image: url("https://cdn.pixabay.com/photo/2016/04/12/10/55/bird-1324088_1280.jpg");
+}
+
+.app__card--summer {
+  background-image: url("https://cdn.pixabay.com/photo/2013/10/07/18/06/field-192179_1280.jpg");
+}
+
+.app__card--autumn {
+  background-image: url("https://cdn.pixabay.com/photo/2018/01/18/10/39/fall-3089995_1280.jpg");
+}
+
+.app__card--winter {
+  background-image: url("https://cdn.pixabay.com/photo/2018/05/04/07/55/snow-3373432_1280.jpg");
+}
+
+.app__card--spring::before,
+.app__card--summer::before,
+.app__card--autumn::before,
+.app__card--winter::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .5;
+}
+
+.app__card--spring::before {
+  background-color: var(--spring-color);
+}
+
+.app__card--summer::before {
+  background-color: var(--summer-color);
+}
+
+.app__card--autumn::before {
+  background-color: var(--autumn-color);
+}
+
+.app__card--winter::before {
+  background-color: var(--winter-color);
+}
+
+.app__card-text {
+  width: 80%;
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  transform: translateX(-50%);
+  padding: 1em;
+  color: #fff;
+  border-radius: 6px;
+  z-index: 2;
+}
+
+.app__card-text-season {
+  text-transform: uppercase;
+  transform: rotate(-90deg);
+  text-align: center;
+}
+
 .app__card-text-description {
   display: none;
   opacity: 0;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
+  font-weight: 300;
 }
 
-.app__card--active .app__card-text-description {
-  display: block;
-  animation: showText 1s 400ms forwards;
-}
-
-.app__card--active::after {
-  opacity: 0;
-}
-
-@keyframes showTextBackground {
-  to {
-    background-color: hsla(0, 0%, 0%, .4);
+@keyframes showBackground {
+  100% {
+    background-color: rgba(0, 0, 0, .5);
   }
 }
 
-@keyframes showText {
-  to {
+@keyframes showDescription {
+  100% {
     opacity: 1;
   }
 }
